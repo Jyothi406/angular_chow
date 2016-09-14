@@ -1,0 +1,327 @@
+.slideshowShadow {
+	background-color: rgba(0, 0, 0, 0.40) !important;
+}
+.btn-green {
+	background-color: #0eaaa6 !important;
+}
+.btn-o.btn-green {
+	background-color: transparent !important;
+	color: #0eaaa6 !important;
+	border-color: #0eaaa6 !important;
+}
+.no-touch .btn-o.btn-green:hover, .btn-o.btn-green:focus, .btn-o.btn-green:active, .btn-o.btn-green.active, .open > .dropdown-toggle.btn-o.btn-green {
+	background-color: #0eaaa6 !important;
+	color: #fff !important;
+}
+.text-green {
+	color: #0eaaa6 !important;
+}
+.logo {
+	background-color: #0eaaa6 !important;
+}
+.no-touch .userMenu ul > li > a:hover > span, .no-touch .userMenu ul > li > a:focus > span {
+	color: #0eaaa6 !important;
+}
+.stLabel {
+	background-color: #0eaaa6 !important;
+}
+.stArrow {
+	border-top-color: #0eaaa6 !important;
+}
+.ui-slider .ui-slider-range {
+	background-color: #0eaaa6 !important;
+}
+.no-touch a.card:hover h2, .no-touch div.card:hover h2 {
+	color: #0eaaa6 !important;
+}
+.no-touch .similar a.similarProp:hover .info .name {
+	color: #0eaaa6 !important;
+}
+.amItem.active span {
+	color: #0eaaa6 !important;
+}
+.no-touch .propsWidget ul.propList li a:hover .info .name {
+	color: #0eaaa6 !important;
+}
+.no-touch .agentsWidget ul.agentsList li a:hover .info .name {
+	color: #0eaaa6 !important;
+}
+.pagination > .active > a, .pagination > .active > span, .no-touch .pagination > .active > a:hover, .no-touch .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	background-color: #0eaaa6 !important;
+	border-color: #0eaaa6 !important;
+}
+.page-links > span {
+	background-color: #0eaaa6 !important;
+}
+.progress-bar-green {
+	background-color: #0eaaa6 !important;
+}
+.spotlight {
+	background-color: #0eaaa6 !important;
+}
+.s-icon {
+	color: #0eaaa6 !important;
+}
+.label-green {
+	background-color: #0eaaa6 !important;
+}
+h2.s-main {
+	color: #0eaaa6 !important;
+}
+.no-touch .s-menu-item:hover .s-icon {
+	color: #fff !important;
+}
+.no-touch .s-menu-item:hover .s-main {
+	color: #fff !important;
+}
+.no-touch .s-menu-item:hover {
+	background-color: #0eaaa6 !important;
+}
+.no-touch .article h3 a:hover {
+	color: #0eaaa6 !important;
+}
+.blog-pagination a {
+	border: 1px solid #0eaaa6 !important;
+	color: #0eaaa6 !important;
+}
+.no-touch .blog-pagination a:hover {
+	color: #fff !important;
+	;
+	background-color: #0eaaa6 !important;
+}
+blockquote {
+	border-left: 2px solid #0eaaa6 !important;
+}
+.no-touch .f-p-article:hover .fpna-header, .no-touch .f-n-article:hover .fpna-header {
+	color: #0eaaa6 !important;
+}
+.comment-navigation a {
+	border: 1px solid #0eaaa6 !important;
+	color: #0eaaa6 !important;
+}
+.no-touch .comment-navigation a:hover {
+	background-color: #0eaaa6 !important;
+	color: #fff !important;
+}
+.comment-form input[type="submit"] {
+	border: 1px solid #0eaaa6 !important;
+	background-color: #0eaaa6 !important;
+}
+#wp-calendar tbody tr td a {
+	color: #0eaaa6 !important;
+}
+.no-touch .content-sidebar .agentsWidget ul.agentsList li a:hover .info .name {
+	color: #0eaaa6 !important;
+}
+.no-touch .content-sidebar .propsWidget ul.propList li a:hover .info .name {
+	color: #0eaaa6 !important;
+}
+.datepicker td.day:hover {
+	color: #0eaaa6 !important;
+}
+.datepicker td.active, .datepicker td.active:hover {
+	color: #ffffff !important;
+	background-color: #0eaaa6 !important;
+}
+.datepicker td span.active {
+	color: #ffffff !important;
+	background-color: #0eaaa6 !important;
+}
+.datepicker thead tr:first-child th:hover {
+	color: #0eaaa6 !important;
+}
+ @media screen and (max-width: 767px) {
+ #header {
+ background-color: #0eaaa6 !important;
+}
+ .logo {
+ background-color: transparent !important;
+}
+}
+.no-touch #dsidx-listings .dsidx-primary-data .dsidx-address a:hover {
+	color: #0eaaa6 !important;
+}
+.no-touch ul.dsidx-list.dsidx-panel li a:hover {
+	color: #0eaaa6 !important;
+}
+.no-touch div.dsidx-results-widget .dsidx-slideshow-control:hover {
+	background-color: #0eaaa6 !important;
+	color: #fff !important;
+}
+.no-touch div.dsidx-results-widget h4 a:hover {
+	color: #0eaaa6 !important;
+}
+.no-touch .dsidx-widget-single-listing h3.widget-title a:hover {
+	color: #0eaaa6 !important;
+}
+.no-touch .dsidx-prop-summary .dsidx-prop-title a:hover {
+	color: #0eaaa6 !important;
+}
+.no-touch h4.dsidx-address a:hover {
+	color: #0eaaa6 !important;
+}
+.no-touch .properties-list-item-details h2 a:hover {
+	color: #0eaaa6 !important;
+}
+.content-sidebar .price-plan-title.active {
+	background-color: #0eaaa6 !important;
+}
+.no-touch .btn-green:hover, .btn-green:focus, .btn-green:active, .btn-green.active, .open > .dropdown-toggle.btn-green {
+	background-color: #068b85 !important;
+	color: #fff !important;
+}
+.no-touch a.text-green:hover {
+	color: #068b85 !important;
+}
+.no-touch a.bg-green:hover {
+	background-color: #068b85 !important;
+}
+.comment-form input[type="submit"]:hover {
+	background-color: #068b85 !important;
+	border: 1px solid #068b85 !important;
+}
+.footer-nav .searchform input[type="submit"] {
+	background-color: #068b85 !important;
+}
+.content-sidebar .searchform input[type="submit"] {
+	background-color: #068b85 !important;
+}
+.datepicker td.active:hover, .datepicker td.active:hover:hover, .datepicker td.active:focus, .datepicker td.active:hover:focus, .datepicker td.active:active, .datepicker td.active:hover:active, .datepicker td.active.active, .datepicker td.active:hover.active, .datepicker td.active.disabled, .datepicker td.active:hover.disabled, .datepicker td.active[disabled], .datepicker td.active:hover[disabled] {
+	color: #ffffff !important;
+	background-color: #068b85 !important;
+}
+.datepicker td.active:active, .datepicker td.active:hover:active, .datepicker td.active.active, .datepicker td.active:hover.active {
+	background-color: #068b85 \9 !important;
+}
+.datepicker td span.active:hover, .datepicker td span.active:focus, .datepicker td span.active:active, .datepicker td span.active.active, .datepicker td span.active.disabled, .datepicker td span.active[disabled] {
+	color: #ffffff !important;
+	background-color: #068b85 !important;
+}
+.datepicker td span.active:active, .datepicker td span.active.active {
+	background-color: #068b85 \9 !important;
+}
+#leftSide {
+	background-color: #213837 !important;
+}
+.leftNav > div > ul > li > a {
+	color: #adc8c7 !important;
+}
+.expanded .leftNav > ul > li.onTap > a {
+	color: #adc8c7 !important;
+}
+ @media screen and (max-width: 767px) {
+ .searchIcon {
+ color: #adc8c7 !important;
+}
+ .search input::-webkit-input-placeholder {
+ color: #adc8c7 !important;
+}
+ .search input:-moz-placeholder {
+ color: #adc8c7 !important;
+}
+ .search input::-moz-placeholder {
+ color: #adc8c7 !important;
+}
+ .search input:-ms-input-placeholder {
+ color: #adc8c7 !important;
+}
+}
+.leftNav > div > ul > li > ul > li > a {
+	color: #96adac !important;
+}
+.no-touch .leftNav > div > ul > li:hover > ul > li > a, .leftNav > div > ul > li.onTap > ul > li > a {
+	color: #96adac !important;/* background-color: #132120; */
+}
+.no-touch .leftNav > div > ul > li:hover > a, .leftNav > div > ul > li.onTap > a {
+	background-color: #067670 !important;
+	color: #fff !important;
+}
+.expanded .leftNav > ul > li.active > a {
+	background-color: #067670 !important;
+	color: #fff !important;
+}
+.leftNav > div > ul > li > ul {
+	background-color: #132120 !important;
+}
+.no-touch .leftNav > div > ul > li > ul {
+	background-color: #132120 !important;
+}
+.no-touch .leftNav > div > ul > li:hover > ul > li > a, .leftNav > div > ul > li.onTap > ul > li > a {
+	/* color: #96adac; */
+            background-color: #132120 !important;
+}
+ @media screen and (max-width: 767px) {
+ .leftNav .search {
+ background-color: #132120 !important;
+}
+ .search input {
+ background-color: #132120 !important;
+ color: #fff !important;
+}
+}
+.no-touch .leftNav > div > ul > li > ul > li > a:hover {
+	color: #fff !important;
+	background-color: #05635e !important;
+}
+ @media screen and (max-width: 767px) {
+ .no-touch a.mapHandler:hover {
+ color: #c6e4e3 !important;
+}
+ .no-touch #header a.userHandler:hover {
+ color: #c6e4e3 !important;
+}
+ .no-touch #header a.navHandler:hover {
+ color: #c6e4e3 !important;
+}
+}
+.home-footer {
+	background-color: #333333 !important;
+}
+.footer-header {
+	color: #c6e4e3 !important;
+}
+.propType {
+	background-color: #eab134 !important;
+}
+.figType {
+	background-color: #eab134 !important;
+}
+.similar a.similarProp .info .price .badge {
+	background-color: #eab134 !important;
+}
+.propWidget-1 .fig .figType {
+	background-color: #eab134 !important;
+}
+.propWidget-2 .fig .figType {
+	background-color: #eab134 !important;
+}
+.propWidget-3 .priceCap .type {
+	background-color: #eab134 !important;
+}
+.propsWidget ul.propList li a .info .price .badge {
+	background-color: #eab134 !important;
+}
+.label-yellow {
+	background-color: #eab134 !important;
+}
+.favLink .addFav, .favLink .addedFav, .favLink .noSigned {
+	color: #ea3d36 !important;
+}
+.no-touch .favLink a.addFav:hover span, .no-touch .favLink a.noSigned:hover span {
+	color: #ea3d36 !important;
+}
+.figStatus {
+	background-color: #ea3d36 !important;
+}
+</style>
+<style type="text/css" media="screen">
+html {
+	margin-top: 0px !important;
+}
+* html body {
+	margin-top: 0px !important;
+}
+.signbtn{
+  padding-right:150px;
+  padding-left:115px;
+}

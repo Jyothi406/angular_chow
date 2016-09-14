@@ -1,20 +1,390 @@
-﻿<div class="col-md-6 col-md-offset-3">
-    <h2>Login</h2>
-    <form name="form" ng-submit="vm.login()" role="form">
-        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
-            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="css_web/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fonts_web/font-awesome/css_web/font-awesome.css">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="css_web/owl.carousel.css" rel="stylesheet" media="screen">
+    <link href="css_web/owl.theme.css" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="css_web/style.css">
+    <link rel="stylesheet" type="text/css" href="css_web/responsive.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' id='reales_style-css'  href='wp-content/themes/reales/style5152.css?ver=1.0' type='text/css' media='all' />
+	<link rel='stylesheet' id='font_awesome-css'  href='wp-content/themes/reales/css/font-awesome5152.css?ver=1.0' type='text/css' media='all' />
+
+
+    <script type="text/javascript" src="js_web/modernizr.custom.js"></script>
+
+
+
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" href="index.html"><img src="img_web/Logo_TV_2015.png" alt="Slendit"></a>
         </div>
-        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="demo1"><a href="#tf-home" class="page-scroll">Chow</a></li>
+
+            <li><a href="#" class="page-scroll" data-toggle="modal" data-target="#signup">Sign Up</a></li>
+        <li><a href="#" class="page-scroll" data-toggle="modal" data-target="#signin">Log In</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Home Page
+    ==========================================-->
+    <div id="tf-home" class="text-center">
+
+     <div class="modal fade" id="signin" role="dialog" aria-labelledby="signinLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="signinLabel">Log In</h4>
         </div>
-        <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
-            <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            <a href="#/register" class="btn btn-link">Register</a>
+        <div class="modal-body">
+          <form name="form" ng-submit="vm.login()" role="form">
+            <div class="signinMessage" id="signinMessage">
+              <div align="center" class="text-danger" style="padding-bottom:15px;">{{vm.thisCanBeusedInsideNgBindHtml}}</div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+              <input type="text" name="email" id="email" class="form-control" ng-model="vm.email" required placeholder="Email Address">
+              <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">email is required</span> </div>
+            <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+              <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required placeholder="Password">
+              <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span> </div>
+            <!--<div class="form-group">
+                <input type="text" name="referralcodeSignin" id="referralcodeSignin" placeholder="Referral Code" class="form-control">
+              </div>-->
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-7">
+                  <!--<div class="checkbox custom-checkbox">
+                      <input type="checkbox" id="rememberSignin" name="rememberme" value="forever">
+                      <span class="fa fa-check"></span> Keep me Logged in </div>-->
+                </div>
+                <div class="col-xs-12 align-center">
+                  <p><a href="#" class="text-green forgotPass" data-toggle="modal" data-target="#forgot">Forgot password?</a></p>
+                </div>
+              </div>
+            </div>
+            <input type="hidden" id="securitySignin" name="securitySignin" value="0252d92392" />
+            <input type="hidden" name="_wp_http_referer" value="/themes/reales-wp/" />
+            <div class="form-group">
+              <div class="btn-group-justified">
+                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-lg btn-success" style="padding-left:35px;padding-right:80px;">Log In</button>
+              </div>
+            </div>
+            <!-- <p class="help-block">Are you a new user? <a href="#" class="text-green forgotPass" data-toggle="modal" data-target="#signup">Sign Up!</a></p>-->
+          </form>
+          <hr />
+          <div class="signOr">OR</div>
+          <form name="formfb" ng-submit="vm.fblogin()" role="form">
+           <div class="form-group">
+              <div class="logbtn"> <button type="submit" class="btn btn-lg btn-facebook" id="fbLoginBtn"><span class="fa fa-facebook pull-left"></span><span class="signinFBText">Log in with Facebook</span></button> </div>
+            </div>
+           </form>
+           <form name="formgp" ng-submit="vm.gplogin()" role="form">
+            <div class="form-group">
+              <div class="logbtn"> <button type="submit" class="btn btn-lg btn-google" id="googleSigninBtn"><span class="fa fa-google-plus pull-left"></span><span class="signinGText">Log in with Google</span></button> </div>
+            </div>
+            </form>
         </div>
-    </form>
-</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="signup" role="dialog" aria-labelledby="signupLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="signupLabel">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form name="form1" ng-submit="vm.register()" role="form">
+            <div class="signupMessage" id="signupMessage">
+              <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form1.email.$dirty && form1.email.$error.required }">
+              <input type="text" name="email" id="email" class="form-control" ng-model="vm.user.email" required placeholder="Email Address">
+              <span ng-show="form1.email.$dirty && form1.email.$error.required" class="help-block">email is required</span> </div>
+            <div class="form-group" ng-class="{ 'has-error': form1.password.$dirty && form1.password.$error.required }">
+              <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password" required placeholder="Password">
+              <span ng-show="form1.password.$dirty && form1.password.$error.required" class="help-block">Password is required</span> </div>
+            <div class="form-group" ng-class="{ 'has-error': form1.mobile.$dirty && form1.mobile.$error.required }">
+              <input type="text" name="mobile" id="mobile" class="form-control" ng-model="vm.user.mobile" required placeholder="Phone Number">
+              <span ng-show="form1.mobile.$dirty && form1.mobile.$error.required" class="help-block">Mobile No is required</span> </div>
+            <div class="form-group" ng-class="{ 'has-error': form1.displayname.$dirty && form1.displayname.$error.required }">
+              <input type="text" name="displayname" id="displayname" class="form-control" ng-model="vm.user.displayname" required placeholder="Display Name">
+              <span ng-show="form1.displayname.$dirty && form1.displayname.$error.required" class="help-block">Display name is required</span> </div>
+            <!-- <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="checkbox custom-checkbox">
+                      <input type="checkbox" id="rememberSignin" name="rememberme" value="forever">
+                      <span class="fa fa-check"></span> I accept <u>Terms & Conditions</u> </div>
+                  </div>
+                </div>
+              </div>-->
+            <input type="hidden" id="securitySignin" name="securitySignin" value="0252d92392" />
+            <input type="hidden" name="_wp_http_referer" value="/themes/reales-wp/" />
+            <div class="form-group">
+              <div class="btn-group-justified">
+                <button button type="submit" ng-disabled="form1.$invalid || vm.dataLoading" class="btn btn-lg btn-success" style="padding-left:35px;padding-right:90px;">Sign Up</button>
+              </div>
+            </div>
+            <!--<p class="help-block">Are you a Existing user? <a href="#" class="text-green forgotPass" data-toggle="modal" data-target="#signin">Log in!</a></p>-->
+          </form>
+          <hr />
+          <div class="signOr">OR</div>
+         <form name="formfb1" ng-submit="vm.fblogin()" role="form">
+           <div class="form-group">
+              <div class="logbtn"> <button type="submit" class="btn btn-lg btn-facebook" id="fbLoginBtn"><span class="fa fa-facebook pull-left"></span><span class="signinFBText">Log in with Facebook</span></button> </div>
+            </div>
+           </form>
+            <form name="formgp1" ng-submit="vm.gplogin()" role="form">
+            <div class="form-group">
+              <div class="logbtn"> <button type="submit" class="btn btn-lg btn-google" id="googleSigninBtn"><span class="fa fa-google-plus pull-left"></span><span class="signinGText">Log in with Google</span></button> </div>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="forgot" role="dialog" aria-labelledby="forgotLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="forgotLabel">Forgot Password</h4>
+        </div>
+        <div class="modal-body">
+          <form name="form2" ng-submit="vm.forget()" role="form" >
+            <div class="forgotMessage" id="forgotMessage" style="padding-bottom:15px;"> <span class="text-success">{{vm.forgotsuccessmsg}}</span> <span class="text-danger">{{vm.forgoterrormsg}}</span> </div>
+            <div class="form-group forgotField" ng-class="{ 'has-error': form.2email.$dirty && form2.email.$error.required }">
+              <input type="text" name="email" id="email" class="form-control" ng-model="vm.email" required placeholder="Email address">
+              <span ng-show="form2.email.$dirty && form2.email.$error.required" class="text-danger">email is required</span> </div>
+            <input type="hidden" id="securityForgot" name="securityForgot" value="c121cff246" />
+            <input type="hidden" name="_wp_http_referer" value="/themes/reales-wp/" />
+            <div class="form-group forgotField">
+              <div class="btn-group-justified">
+                <button button type="submit" ng-disabled="form2.$invalid || vm.dataLoading" class="btn btn-lg btn-success" style="padding-left:35px;padding-right:170px;" id="submitForgot">Get New Password</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="overlay">
+            <div class="content">
+                <h1>ABC <strong><span class="color">CHOW</span></strong></h1>
+                <p class="lead">dfsdfdgdgfdgfsgsfvsvfdvs....</strong></p>
+
+              <a href="#tf-works" class="fa fa-angle-down page-scroll"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="tf-works">
+        <div class="container"> <!-- Container -->
+            <div class="section-title text-center center">
+                <h2>Take a look at <strong>Chow collections</strong></h2>
+                <div class="line">
+                    <hr>
+                </div>
+                <div class="clearfix"></div>
+                <!--<small><em>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</em></small>-->
+            </div>
+            <div class="space"></div>
+
+
+            <div id="lightbox" class="row">
+
+                <div class="col-sm-6 col-md-3 col-lg-3 Make an offer">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                    <!--<small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                    <!--<i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/home-image-25-jul-2012.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 photography app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                    <!--<small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                   <!-- <i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/Delicious-food-04-HD-Images-44753.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 Make an offer">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                    <!--<small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                   <!-- <i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/banner1.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 Make an offer">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                    <!--<small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                    <!--<i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/banner4.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                   <!-- <small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                    <!--<i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/banner3.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                   <!-- <small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                    <!--<i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/images.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 photography web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                    <!--<small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                    <!--<i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/nb9.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="#">
+                                <div class="hover-text">
+                                    <h4>View Product</h4>
+                                    <!--<small>Make an offer</small>-->
+                                    <div class="clearfix"></div>
+                                    <!--<i class="fa fa-plus"></i>-->
+                                </div>
+                                <img src="img_web/portfolio/d01.jpg" class="img-responsive" alt="...">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2016. Designed by <a href="#">Pnuema Innovations Private Limited</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js_web/jquery.1.11.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js_web/bootstrap.js"></script>
+    <script type="text/javascript" src="js_web/SmoothScroll.js"></script>
+    <script type="text/javascript" src="js_web/jquery.isotope.js"></script>
+
+    <script src="js_web/owl.carousel.js"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="js_web/main.js"></script>
